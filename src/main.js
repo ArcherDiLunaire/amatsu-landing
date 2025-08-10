@@ -192,8 +192,8 @@
 
 		window.addEventListener('devicemotion', function (event) {
 			if (isTouchDevice) {
-				parallaxPos.x = curve(smoothX(-event.accelerationIncludingGravity.x / 100)) * -10;
-				parallaxPos.y = curve(smoothY(-event.accelerationIncludingGravity.y / 100)) * 10;
+				parallaxPos.x = curve(smoothX(-event.accelerationIncludingGravity.x / 100)) * -30;
+				parallaxPos.y = curve(smoothY(-event.accelerationIncludingGravity.y / 100)) * 15;
 			}
 		});
 
