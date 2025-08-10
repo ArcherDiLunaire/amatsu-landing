@@ -174,8 +174,10 @@
 					haze.gl.createUniform('2f', 'mouse', -(-1 + _this.x * 2), -(-1 + _this.y * 2));
 
 					//animate text
-					header.style.transform = "translate(" + (_this.x * 2)+"px,"+ (_this.y * 2) + "px)";
-					title.style.transform = "translate(" + (_this.x * -30)+"px,"+ (_this.y * -30) + "px)";
+					let headerOffset = !isTouchDevice ? 2 : 0.5;
+					let titleOffset = !isTouchDevice ? -30 : -8;
+					header.style.transform = "translate(" + (_this.x * headerOffset) + "px," + (_this.y * headerOffset) + "px)";
+					title.style.transform = "translate(" + (_this.x * titleOffset) + "px," + (_this.y * titleOffset) + "px)";
 				});
 			}
 		};
@@ -190,8 +192,8 @@
 
 		window.addEventListener('devicemotion', function (event) {
 			if (isTouchDevice) {
-				parallaxPos.x = curve(smoothX(-event.accelerationIncludingGravity.x / 100)) * -5;
-				parallaxPos.y = curve(smoothY(-event.accelerationIncludingGravity.y / 100)) * 5;
+				parallaxPos.x = curve(smoothX(-event.accelerationIncludingGravity.x / 100)) * -10;
+				parallaxPos.y = curve(smoothY(-event.accelerationIncludingGravity.y / 100)) * 10;
 			}
 		});
 
